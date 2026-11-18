@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: 223 78% 5%;
+  --bg-surface: 221 71% 9%;
+  --bg-elevated: 220 68% 13%;
+  --fg-primary: 210 40% 99%;
+  --fg-secondary: 212 45% 84%;
+  --fg-muted: 214 30% 62%;
+  --accent-blue: 221 83% 53%;
+  --accent-blue-hover: 217 91% 58%;
+  --accent-cyan: 190 100% 50%;
+  --accent-cyan-soft: 192 95% 68%;
+  --accent-gold: 43 92% 52%;
+  --accent-gold-soft: 45 96% 64%;
+  --border-subtle: 214 64% 20%;
+  --border-strong: 196 85% 42%;
+  --danger: 0 76% 64%;
+}
+
+@theme inline {
+  --color-canvas: hsl(var(--bg-canvas));
+  --color-surface: hsl(var(--bg-surface));
+  --color-elevated: hsl(var(--bg-elevated));
+  --color-ink: hsl(var(--fg-primary));
+  --color-ink-secondary: hsl(var(--fg-secondary));
+  --color-ink-muted: hsl(var(--fg-muted));
+  --color-royal: hsl(var(--accent-blue));
+  --color-royal-hover: hsl(var(--accent-blue-hover));
+  --color-cyan: hsl(var(--accent-cyan));
+  --color-cyan-soft: hsl(var(--accent-cyan-soft));
+  --color-gold: hsl(var(--accent-gold));
+  --color-gold-soft: hsl(var(--accent-gold-soft));
+  --color-hairline: hsl(var(--border-subtle));
+  --color-hairline-strong: hsl(var(--border-strong));
+  --color-danger: hsl(var(--danger));
+
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: hsl(var(--bg-canvas));
+    color: hsl(var(--fg-primary));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: hsl(var(--bg-canvas));
+    background-image:
+      radial-gradient(ellipse 75% 45% at 75% 8%, hsl(var(--accent-blue) / 0.24), transparent 70%),
+      radial-gradient(ellipse 55% 35% at 15% 45%, hsl(var(--accent-cyan) / 0.1), transparent 70%),
+      linear-gradient(135deg, hsl(223 78% 4%) 0%, hsl(221 75% 7%) 50%, hsl(223 80% 4%) 100%);
+    color: hsl(var(--fg-primary));
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: hsl(var(--accent-cyan) / 0.3);
+    color: hsl(var(--fg-primary));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.poster-glow-card {
+  box-shadow:
+    0 0 0 1px hsl(var(--accent-cyan) / 0.2),
+    0 14px 36px -14px hsl(var(--accent-blue) / 0.45);
+}
+
+.poster-glow-gold {
+  box-shadow:
+    0 0 0 1px hsl(var(--accent-gold) / 0.45),
+    0 16px 40px -12px hsl(var(--accent-gold) / 0.35);
+}
+
+.poster-glow-ring {
+  box-shadow:
+    0 0 20px -2px hsl(var(--accent-cyan) / 0.48),
+    inset 0 0 12px -4px hsl(var(--accent-cyan) / 0.35);
+}
+
+.poster-glow-btn {
+  background-image: linear-gradient(
+    90deg,
+    hsl(var(--accent-blue)) 0%,
+    hsl(198 96% 48%) 100%
+  );
+  box-shadow: 0 8px 28px -6px hsl(var(--accent-cyan) / 0.48);
+}
+
+.poster-glow-btn:hover {
+  background-image: linear-gradient(
+    90deg,
+    hsl(var(--accent-blue-hover)) 0%,
+    hsl(var(--accent-cyan)) 100%
+  );
+  box-shadow: 0 10px 32px -4px hsl(var(--accent-cyan) / 0.62);
+}
